@@ -1,0 +1,25 @@
+{
+  "name": "zocs",
+  "displayName": "zocs",
+  "description": "Zander's Original Config Script",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "zocs",
+      "aliases": ["ZOCS", "zocs"],
+      "extensions": [".zocs"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "zocs",
+      "scopeName": "source.zocs",
+      "path": "./syntaxes/zocs.tmLanguage.json"
+    }]
+  }
+}
