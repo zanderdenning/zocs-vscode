@@ -7,14 +7,32 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#arguments"
+		},
+		{
+			"include": "#macros"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.zocs",
-				"match": "\\b(true|false|null)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "constant.language.zocs",
+					"match": "\\b(true|false|null)\\b"
+				},
+				{
+					"name": "keyword.other.zocs",
+					"match": "\\b(DEF)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.zocs",
@@ -24,6 +42,52 @@
 				{
 					"name": "constant.character.escape.zocs",
 					"match": "\\\\."
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.zocs",
+					"match": "[-+]?0x[0-9a-fA-F]+"
+				},
+				{
+					"name": "constant.numeric.zocs",
+					"match": "[-+]?0b[0-1]+"
+				},
+				{
+					"name": "constant.numeric.zocs",
+					"match": "[-+]?[0-9]+(?:[\\.e][0-9]+)?"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.block.zocs",
+					"begin": "/\\*",
+					"end": "\\*/"
+				},
+				{
+					"name": "comment.line.double-slash.zocs",
+					"begin": "//",
+					"end": "(?=$)"
+				}
+			]
+		},
+		"arguments": {
+			"patterns": [
+				{
+					"name": "variable.parameter.zocs",
+					"match": "<[0-9]+>"
+				}
+			]
+		},
+		"macros": {
+			"patterns": [
+				{
+					"name": "variable.other.zocs",
+					"match": "(?<=DEF\\s+)([A-Za-z_][A-Za-z_0-9]*)"
 				}
 			]
 		}
